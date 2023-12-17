@@ -25,11 +25,11 @@ class EnvConfigClass {
   initConf() {
     this.envConf = {
       development: {
-        baseApi: process.env.VUE_APP_BASE_API,
+        baseApi: process.env.VUE_APP_BASE_API!,
         mockBaseApi: '',
       },
       production: {
-        baseApi: process.env.VUE_APP_BASE_API,
+        baseApi: process.env.VUE_APP_BASE_API!,
         mockBaseApi: '',
       },
     }

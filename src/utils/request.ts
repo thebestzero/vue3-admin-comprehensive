@@ -56,9 +56,8 @@ class AxiosUtil {
       const headers = request.headers!
       if (!headers.hasAuthorization() && token)
         headers.setAuthorization(`Bearer ${token}`)
-      if (isCheckTimeout()) {
+      if (token && isCheckTimeout()) {
         const userStore = useUserStore()
-
         userStore.logout()
         throw new Error('TOKEN TIMEOUT')
       }

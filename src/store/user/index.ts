@@ -42,6 +42,7 @@ export const useUserStore = defineStore('userStore', {
         username,
         password: md5(password),
       })
+      console.log(res,'login')
       setItem('token', res.data.token)
       setTimeStamp()
     },

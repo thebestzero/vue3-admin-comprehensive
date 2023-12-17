@@ -10,9 +10,14 @@ module.exports = {
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
   ],
+  parser: 'vue-eslint-parser',
   parserOptions: {
-    ecmaVersion: 12,
+    ecmaVersion: 'latest',
     parser: '@typescript-eslint/parser',
+    sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true,
+    },
   },
   plugins: ['vue', '@typescript-eslint'],
   rules: {

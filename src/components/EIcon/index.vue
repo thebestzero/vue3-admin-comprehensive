@@ -27,6 +27,9 @@ const icon = computed(() => {
 </script>
 
 <style lang='scss' scoped>
+.el-icon{
+  font-size: 14px;
+}
 .svg {
   width: 1em;
   height: 1em;

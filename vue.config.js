@@ -15,7 +15,8 @@ module.exports = {
       // 当地址中有/api的时候会触发代理机制
       '/api': {
         // 要代理的服务器地址  这里不用写 api
-        target: 'http://192.168.2.8:3004/',
+        // target: 'http://192.168.2.8:3004/',
+        target: 'http://localhost:3004/',
         changeOrigin: true, // 是否跨域
       },
     },

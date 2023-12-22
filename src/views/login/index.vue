@@ -2,7 +2,8 @@
   <div class="login-container">
     <el-form class="login-form" :model="loginForm" :rules="rules">
       <div class="title-container">
-        <h3 class="title">用户登录</h3>
+        <h3 class="title">{{ $t('msg.login.title') }}</h3>
+        <lang-select class="lang-select" effect="light"></lang-select>
       </div>
 
       <el-form-item prop="username">
@@ -23,7 +24,7 @@
           placeholder="password"
           name="password"
           v-model="loginForm.password"
-          :type='passwordType'
+          :type="passwordType"
         />
         <span class="show-pwd">
           <svg-icon
@@ -33,9 +34,12 @@
         </span>
       </el-form-item>
 
-      <el-button type="primary" style="width: 100%; margin-bottom: 30px"
-                 @click='handleLogin'
-        >登录</el-button
+      <el-button
+        type="primary"
+        style="width: 100%; margin-bottom: 30px"
+        @click="handleLogin"
+        :loading="loading"
+        >{{ $t('msg.login.loginBtn') }}</el-button
       >
     </el-form>
   </div>
@@ -45,9 +49,13 @@
 import { reactive, ref } from 'vue'
 import type { FormRules } from 'element-plus'
 import { validatePassword } from '@/utils/rules'
-import {useUserStore} from '@/store'
-import {useRouter} from 'vue-router'
+import { useUserStore } from '@/store'
+import { useRouter } from 'vue-router'
+import LangSelect from '@/components/LangSelect/index.vue'
+import { useI18n } from 'vue-i18n'
 
+const i18n = useI18n()
+const loading = ref(false)
 const router = useRouter()
 const store = useUserStore()
 const loginForm = ref({
@@ -56,21 +64,22 @@ const loginForm = ref({
 })
 
 const rules = reactive<FormRules<typeof loginForm>>({
-  username: [{ required: true, trigger: 'blur', message: '用户名为必填项' }],
+  username: [{ required: true, trigger: 'blur', message:  i18n.t('msg.login.usernameRule')}],
   password: [
     { required: true, trigger: 'blur', validator: validatePassword() },
   ],
 })
-
 // 处理密码框文本显示状态
-const passwordType = ref<'password'|'text'>('password')
+const passwordType = ref<'password' | 'text'>('password')
 const onChangePwdType = () => {
   passwordType.value = passwordType.value === 'password' ? 'text' : 'password'
 }
 
 const handleLogin = async () => {
-  const {username,password} = loginForm.value
-  await store.login(username,password)
+  const { username, password } = loginForm.value
+  loading.value = true
+  await store.login(username, password)
+  loading.value = false
   await router.push({ name: 'home' })
 }
 </script>

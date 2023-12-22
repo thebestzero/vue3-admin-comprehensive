@@ -10,7 +10,7 @@ const routes = computed(() => {
   return generateMenus(filterRoutes)
 })
 const {themeStore} = LayoutService
-const {cssVar} = themeStore
+const {cssVar,getSidebarOpened} = themeStore
 </script>
 
 <template>
@@ -20,6 +20,8 @@ const {cssVar} = themeStore
     :background-color="cssVar.menuBg"
     :text-color="cssVar.menuText"
     :active-text-color="cssVar.menuActiveText"
+    :collapse='!getSidebarOpened'
+    router
   >
   <sidebar-item
       v-for="item in routes"

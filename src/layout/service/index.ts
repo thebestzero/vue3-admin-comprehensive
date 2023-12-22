@@ -6,7 +6,7 @@ import {useThemeStore} from '@/store'
 export default class LayoutService{
   static userStore = useUserStore(pinia)
   static userStoreRef = storeToRefs(this.userStore)
-  static themeStore = storeToRefs(useThemeStore())
+  static themeStore = storeToRefs(useThemeStore(pinia))
   static logout = () => {
       this.userStore.logout()
   }

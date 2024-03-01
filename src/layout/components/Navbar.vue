@@ -3,6 +3,8 @@
     <hamburger class="hamburger-container" />
     <breadcrumb class="breadcrumb-container" />
     <div class="right-menu">
+      <header-search class="right-menu-item hover-effect"></header-search>
+      <screenfull class="right-menu-item hover-effect" />
       <lang-select class="right-menu-item hover-effect" effect='light' />
       <!-- 头像 -->
       <el-dropdown class="avatar-container" trigger="click">
@@ -35,6 +37,8 @@ import LayoutService from '@/layout/service'
 import Hamburger from '@/components/Hamburger'
 import Breadcrumb from '@/components/Breadcrumb'
 import LangSelect from '@/components/LangSelect'
+import Screenfull from '@/components/Screenfull'
+import HeaderSearch from '@/components/HeaderSearch'
 const { userStore, logout } = LayoutService
 </script>
 

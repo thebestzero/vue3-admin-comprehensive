@@ -12,4 +12,5 @@ import { computed } from 'vue'
 
 const store = useThemeStore()
 const locale = computed(() => (store.getLanguage === 'en' ? en : zhCn))
+
 </script>

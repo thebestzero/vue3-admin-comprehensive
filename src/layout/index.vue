@@ -13,6 +13,8 @@
       <div class="fixed-header">
         <!-- 顶部的 navbar -->
         <navbar />
+          <!-- tags -->
+      <TagsView></TagsView>
       </div>
       <!-- 内容区 -->
       <app-main />
@@ -26,6 +28,7 @@ import Sidebar from './components/Sidebar/Sidebar.vue'
 import AppMain from './components/AppMain.vue'
 import variables from '@/styles/variables.module.scss'
 import LayoutService from '@/layout/service'
+import TagsView from '@/components/Tagsview'
 
 const { themeStore } = LayoutService
 const { getSidebarOpened } = themeStore

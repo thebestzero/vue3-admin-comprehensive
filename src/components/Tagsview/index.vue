@@ -14,11 +14,12 @@
         @contextmenu.prevent="openMenu($event, index)"
       >
         {{ tag.title }}
-        <i
+        <el-icon
           v-show="!isActive(tag)"
-          class="el-icon-close"
           @click.prevent.stop="onCloseClick(index)"
-        />
+        >
+          <Close></Close>
+        </el-icon>
       </router-link>
     </el-scrollbar>
     <context-menu
@@ -38,6 +39,7 @@ import ContextMenu from './ContextMenu.vue'
 const themeStore = useThemeStore()
 const appStore = useAppStore()
 const route = useRoute()
+import {Close} from '@element-plus/icons'
 
 /**
  * 是否被选中
@@ -51,7 +53,7 @@ const isActive = (tag: any) => {
  */
 const onCloseClick = (index: number) => {
    appStore.removeTagsView({
-    type:'right',
+    type:'index',
     index
   })
 }

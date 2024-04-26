@@ -3,6 +3,7 @@ import { TAGS_VIEW } from '@/constant'
 import { getItem, setItem } from '@/utils/storage'
 interface AppStore {
   tagsViewList: any[]
+  sensBtnArr:any[]
 }
 interface PayLoad {
   type: 'other' | 'right' | 'index';
@@ -12,6 +13,7 @@ export const useAppStore = defineStore('appStore', {
   state: (): AppStore => {
     return {
       tagsViewList: [],
+      sensBtnArr:[]
     }
   },
   getters: {

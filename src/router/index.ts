@@ -95,7 +95,61 @@ const privateRoutes = [
                 }
             }
         ]
-    }
+    },
+      {
+        path: '/chart',
+        component: layout,
+        redirect: '/chart/network',
+        meta: {
+            title: 'chart',
+            icon: 'example'
+        },
+        children: [
+            {
+                path: '/chart/network',
+                component: () => import('@/views/network/index.vue'),
+                meta: {
+                    title: 'network',
+                    icon: 'picture'
+                }
+            },
+            {
+                path: '/chart/tree',
+                component: () => import('@/views/cmp-tree/index.vue'),
+                meta: {
+                    title: 'cmpTree',
+                    icon: 'picture'
+                }
+            }
+        ]
+    },
+      {
+        path: '/form',
+        component: layout,
+        redirect: '/form/basicForm',
+        meta: {
+            title: 'form',
+            icon: 'example'
+        },
+        children: [
+            {
+                path: '/form/basicForm',
+                component: () => import('@/views/form/index.vue'),
+                meta: {
+                    title: 'basicForm',
+                    icon: 'picture'
+                }
+            },
+            {
+                path: '/form/dynamicForm',
+                component: () => import('@/views/form/dynamicForm.vue'),
+                meta: {
+                    title: 'dynamicForm',
+                    icon: 'picture'
+                }
+            },
+        ]
+    },
 ]
 
 /**

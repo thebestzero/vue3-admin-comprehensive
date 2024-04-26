@@ -73,8 +73,10 @@ watchSwitchLang(() => {
   min-height: calc(100vh - 50px);
   width: 100%;
   position: relative;
+  top: 50px;
   overflow: hidden;
-  padding: 61px 20px 20px 20px;
+  padding: 50px 20px 20px 20px;
   box-sizing: border-box;
+  display: flex;
 }
 </style>
